@@ -8,16 +8,16 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
         with:
           path: action-tools
 
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
         with:
           repository: petronny/lilac
           path: lilac
 
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
         with:
           repository: arch4edu/action-artifacts
           path: artifacts
@@ -26,12 +26,12 @@ jobs:
         id: initialization
         run: ${GITHUB_WORKSPACE}/action-tools/initialize.sh
 
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
         with:
           repository: arch4edu/arch4edu
           path: arch4edu
 
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
         with:
           repository: arch4edu/mirrorlist
           path: mirrorlist
@@ -61,19 +61,19 @@ jobs:
           path: ${{ github.workspace }}/workflow_id
 
       - name: Upload package
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: ${{ steps.initialization.outputs.pkgbase }}
           path: ${{ github.workspace }}/arch4edu/${{ steps.initialization.outputs.pkgbase }}/*.pkg.tar.zst
 
       - name: Upload commit patch
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: ${{ steps.initialization.outputs.pkgbase }}.patch
           path: ${{ github.workspace }}/commit.patch
 
       - name: Upload build log
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         if: ${{ always() }}
         with:
           name: ${{ steps.initialization.outputs.pkgbase }}.log
