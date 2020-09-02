@@ -12,7 +12,7 @@ if [ -z "$imported" ]
 then
 	if [ -f /usr/share/pacman/keyrings/arch4edu-trusted ]
 	then
-		fakeroot pacman-key --populate arch4edu
+		fakeroot pacman-key --gpgdir gnupg --populate arch4edu
 	else
 		fakeroot pacman-key --gpgdir gnupg --recv-keys 7931B6D628C8D3BA
 		fakeroot pacman-key --gpgdir gnupg --finger 7931B6D628C8D3BA
