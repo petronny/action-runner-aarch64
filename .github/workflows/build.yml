@@ -15,6 +15,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: petronny/lilac
+          ref: backup
           path: lilac
 
       - uses: actions/checkout@v2
