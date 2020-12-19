@@ -44,7 +44,7 @@ jobs:
       - name: Build the package with lilac
         env:
           TOKEN: ${{ secrets.CALIL_GITHUB_TOKEN }}
-          PYTHONPATH: ${{ github.workspace }}/lilac:${{ github.workspace }}/lilac/vendor:${{ github.workspace }}/action-tools
+          PYTHONPATH: ${{ github.workspace }}/lilac:${{ github.workspace }}/lilac/lilac2/vendor:${{ github.workspace }}/action-tools
         run: |
           cd ${GITHUB_WORKSPACE}/arch4edu/${{ steps.initialization.outputs.pkgbase }}
           ls -al
